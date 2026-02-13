@@ -16,10 +16,4 @@ public partial class CounterMvu : ComponentBase
     {
         _model = CounterUpdate.Update(_model, CounterMessageEnum.Increment);
     }
-    
-    private void Dispatch(CounterMessageEnum action)
-    {
-        _model = CounterUpdate.Update(_model, action);
-        StateHasChanged();
-    }
 }
