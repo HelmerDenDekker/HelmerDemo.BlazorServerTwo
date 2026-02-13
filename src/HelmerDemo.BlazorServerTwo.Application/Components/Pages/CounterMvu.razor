@@ -1,0 +1,12 @@
+﻿@page "/CounterMvu"
+@rendermode InteractiveServer
+
+@* MVU example: View *@
+
+<PageTitle>Counter MVU</PageTitle>
+
+<h1>Counter</h1>
+
+<p role="status">Current count: @_model.Count</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
