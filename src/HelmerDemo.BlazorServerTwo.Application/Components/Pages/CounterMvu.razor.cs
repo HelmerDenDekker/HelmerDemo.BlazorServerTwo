@@ -1,4 +1,4 @@
-﻿using HelmerDemo.BlazorServerTwo.Application.Components.MVU;
+﻿using HelmerDemo.BlazorServerTwo.Application.Business.Counter.MVU;
 using Microsoft.AspNetCore.Components;
 
 namespace HelmerDemo.BlazorServerTwo.Application.Components.Pages;

@@ -1,6 +1,6 @@
 ﻿using Serilog;
 
-namespace HelmerDemo.BlazorServerTwo.Application.Components.MVU;
+namespace HelmerDemo.BlazorServerTwo.Application.Business.Counter.MVU;
 
 public static class CounterUpdate
 {

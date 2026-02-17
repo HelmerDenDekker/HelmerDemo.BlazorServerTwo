@@ -1,4 +1,4 @@
-﻿namespace HelmerDemo.BlazorServerTwo.Application.Components.MVVM;
+﻿namespace HelmerDemo.BlazorServerTwo.Application.Business.Counter.MVVM;
 
 // Model in MVVM contains the properties, state and logic (Domain logic!)
 public class CounterModel
