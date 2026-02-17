@@ -5,7 +5,9 @@ using Microsoft.AspNetCore.Components;
 namespace HelmerDemo.BlazorServerTwo.Application.Components.Pages;
 
 /// <summary>
-/// Real simple example of the clock with the Timer. This is a more classic Blazor example with all logic in the code-behind 
+/// Real simple example of the clock with the Timer.
+/// This is a more classic Blazor example with all logic in the code-behind.
+/// There are much simpler ways to do this, but this is to demonstrate the use of events and timers in Blazor.
 /// </summary>
 public partial class ClockEvents : ComponentBase, IDisposable
 {
