@@ -1,3 +1,4 @@
+using HelmerDemo.BlazorServerTwo.Application.Business.Clock.MVVM;
 using HelmerDemo.BlazorServerTwo.Application.Components;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -5,6 +6,9 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
+
+// TODO: Find the right scope for Blazor. It is better to use a (singleton)Factory and create a new instance for each component.
+builder.Services.AddScoped<IClockViewModel, ClockViewModel>();
 
 var app = builder.Build();
 

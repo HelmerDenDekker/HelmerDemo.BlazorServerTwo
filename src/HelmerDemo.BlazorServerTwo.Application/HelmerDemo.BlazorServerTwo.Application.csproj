@@ -16,4 +16,8 @@
     <Folder Include="Business\Counter\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\HelmerDemo.BlazorServerTwo.Shared\HelmerDemo.BlazorServerTwo.Shared.csproj" />
+  </ItemGroup>
+
 </Project>

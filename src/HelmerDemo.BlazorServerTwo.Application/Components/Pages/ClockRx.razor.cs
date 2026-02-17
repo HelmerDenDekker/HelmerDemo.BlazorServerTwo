@@ -4,6 +4,9 @@ using Microsoft.AspNetCore.Components;
 
 namespace HelmerDemo.BlazorServerTwo.Application.Components.Pages;
 
+/// <summary>
+/// Simple example of a clock with ReactiveX
+/// </summary>
 public partial class ClockRx : ComponentBase, IDisposable
 {
     private IDisposable? _subscription;
@@ -11,7 +14,7 @@ public partial class ClockRx : ComponentBase, IDisposable
     /// <summary>
     ///     The digital time in the frontend
     /// </summary>
-    protected DigitalTime _currentTime = new(DateTime.Now);
+    private DigitalTime _currentTime = new(DateTime.Now);
 
     /// <summary>
     ///     Overrides the OnInitialized to subscribe the listener
