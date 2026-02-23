@@ -1,6 +1,4 @@
-﻿using HelmerDemo.BlazorServerTwo.Application.Business.Counter.MVVM;
-
-namespace HelmerDemo.BlazorServerTwo.Application.Components.MVVM;
+﻿namespace HelmerDemo.BlazorServerTwo.Application.Business.Counter.MVVM;
 
 // The ViewModel in MVVM binds the Model to the View. It contains properties and commands that the View can bind to.
 public class CounterViewModel

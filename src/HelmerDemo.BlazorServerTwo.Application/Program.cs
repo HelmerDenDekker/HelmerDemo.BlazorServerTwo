@@ -1,5 +1,7 @@
 using HelmerDemo.BlazorServerTwo.Application.Business.Clock.MVVM;
+using HelmerDemo.BlazorServerTwo.Application.Business.Users;
 using HelmerDemo.BlazorServerTwo.Application.Components;
+using HelmerDemo.BlazorServerTwo.Application.JsInterop;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,8 +9,13 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
-// TODO: Find the right scope for Blazor. It is better to use a (singleton)Factory and create a new instance for each component.
+// TODO: Find the right scope for Blazor. Sometimes is better to use a (singleton)Factory and create a new instance fow hen you need a service.
+// Scoped is one per instance / session.
 builder.Services.AddScoped<IClockViewModel, ClockViewModel>();
+builder.Services.AddScoped<ILocalStorageProvider, LocalStorageProvider>(); // TODO This might live too long for its purpose in UserSession.
+builder.Services.AddScoped<IUserStateProvider, UserStateProvider>();
+
+builder.Services.AddSingleton<IUserStateStore, UserStateStore>();
 
 var app = builder.Build();
 

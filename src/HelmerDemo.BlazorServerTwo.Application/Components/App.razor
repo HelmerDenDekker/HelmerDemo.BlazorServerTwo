@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using HelmerDemo.BlazorServerTwo.Application.Components.Shared
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -16,7 +17,8 @@
 </head>
 
 <body>
-    @* Set rendermode here *@
+@* Set rendermode here *@
+    <UserSession /> @*The UserSession is an empty component, initializing the UserProvider in an async way *@
     <Routes @rendermode="InteractiveServer"/>
     <ReconnectModal/>
 <script src="@Assets["_framework/blazor.web.js"]"></script>
