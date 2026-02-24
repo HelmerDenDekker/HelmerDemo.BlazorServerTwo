@@ -13,6 +13,4 @@ public partial class MessageBox : ComponentBase
     {
 	    ViewModel.Initialize();
     }
-	
-    
 }

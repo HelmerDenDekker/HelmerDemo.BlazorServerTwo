@@ -21,6 +21,8 @@ public class MessageBoxViewModel : IMessageBoxViewModel
     // properties for view binding
     public ViewModelStateEnum ViewModelState { get; private set; } = ViewModelStateEnum.Loading;
     public string ErrorMessage { get; private set; } = string.Empty;
+    
+    // Overkill? Or nicely decoupled messages?
     public List<MessageDto> Messages { get; private set; } = new();
     
     public void Initialize()
