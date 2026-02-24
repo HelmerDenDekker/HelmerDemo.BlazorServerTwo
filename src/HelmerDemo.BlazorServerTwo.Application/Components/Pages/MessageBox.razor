@@ -1,3 +1,27 @@
 ﻿@page "/MessageBox"
+@using HelmerDemo.BlazorServerTwo.Application.Business
 <PageTitle>Message Box</PageTitle>
 
+@switch (ViewModel.ViewModelState)
+{
+    case ViewModelStateEnum.Loading:
+        <p>Loading...</p>
+        break;
+    case ViewModelStateEnum.Error:
+        <p>Error: @ViewModel.ErrorMessage</p>
+        break;
+    case ViewModelStateEnum.Ready:
+        foreach (var message in ViewModel.Messages)
+        {
+            <div class="message message--user">
+                <div class="message__wrapper">
+                    <p class="message__content">@message.Content</p>
+                    <p class="message__timestamp">@message.TimeStamp</p>
+                </div>
+            </div>
+        }
+        break;
+     default:
+        <p>Loading...</p>
+        break;
+}

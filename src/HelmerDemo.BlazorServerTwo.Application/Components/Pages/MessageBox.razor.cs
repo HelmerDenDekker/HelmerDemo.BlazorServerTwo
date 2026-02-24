@@ -6,11 +6,13 @@ namespace HelmerDemo.BlazorServerTwo.Application.Components.Pages;
 
 public partial class MessageBox : ComponentBase
 {
-	// TODO use factory!
     [Inject]
     private IMessageBoxViewModel ViewModel { get; set; }
-    
-    
+
+    protected override void OnInitialized()
+    {
+	    ViewModel.Initialize();
+    }
 	
     
 }

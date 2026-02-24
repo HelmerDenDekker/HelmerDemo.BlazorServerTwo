@@ -6,8 +6,9 @@
 /// </summary>
 public class UserStateProvider(IUserStateStore userStateStore) : IUserStateProvider
 {
+    // TODO: The UserStateProvider can be in a Loading state. Think about implementing an enum state AND an INotifyPropertyChanged or something Rx-like to notify when the state changes.
     public bool IsLoading { get; private set; } = true;
-    // TODO: The UserStateProvider can be in a Loading state. => Before requesting the Guid, check the state. Maybe come back for it? WhenLoaded?
+    
 
     public Guid UserId { get; private set; }
 
@@ -25,7 +26,7 @@ public class UserStateProvider(IUserStateStore userStateStore) : IUserStateProvi
     {
         var userState = userStateStore.FindById(user.Id);
         if (userState == null)
-            // TODO, something clearly went wrong. Implement clean exception handling here. For now, we just throw an exception.
+            // TODO, if userState is null, something clearly went wrong. Implement clean exception handling here. For now, we just throw an exception.
             throw new Exception($"UserState with id {user.Id} not found");
 
         UserId = userState.Id;
@@ -36,6 +37,8 @@ public class UserStateProvider(IUserStateStore userStateStore) : IUserStateProvi
 public interface IUserStateProvider
 {
     public Guid UserId { get; }
+
+    public bool IsLoading { get; }
 
     public UserDto Create();
 

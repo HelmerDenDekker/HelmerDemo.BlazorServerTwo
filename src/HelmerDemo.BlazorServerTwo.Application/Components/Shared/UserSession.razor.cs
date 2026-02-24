@@ -91,7 +91,7 @@ public partial class UserSession : ComponentBase
 
     private void ShowErrorPage(string message)
     {
-        var encodedMessage = Uri.EscapeDataString(message ?? string.Empty);
+        var encodedMessage = Uri.EscapeDataString(message);
         NavigationManager.NavigateTo($"/ErrorMessage?message={encodedMessage}");
     }
 }

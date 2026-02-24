@@ -7,5 +7,7 @@
 /// </summary>
 public class MessageBoxState
 {
+    public List<Message> Messages { get; private set; } = new();
     
+    // TODO: Behavior like Add etc.
 }
