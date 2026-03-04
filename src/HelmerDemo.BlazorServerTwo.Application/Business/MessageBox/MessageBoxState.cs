@@ -9,5 +9,7 @@ public class MessageBoxState
 {
     public List<Message> Messages { get; private set; } = new();
     
+    public string MessageFormText { get; private set; } = string.Empty;
+    
     // TODO: Behavior like Add etc.
 }

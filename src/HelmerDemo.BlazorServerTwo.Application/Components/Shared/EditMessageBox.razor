@@ -3,8 +3,8 @@
 
     <div class="form-group">
         <label for="name">Enter your Message: </label>
-        <InputTextArea @oninput="@(ui => { MessageInput.Content = (string)ui.Value ?? string.Empty; MessageTextInputEventHandler(ui); })" @onkeyup="MessageTextKeyUpEventHandler" @ref="_inputTextReference"  Id="name" Class="form-control" @bind-Value="MessageInput.Content"> </InputTextArea>
-        <ValidationMessage For="@(() => MessageInput.Content)" />
+        <InputTextArea @oninput="@(ui => { ViewModel.MessageFormText = (string)ui.Value ?? string.Empty; MessageTextInputEventHandler(ui); })" @onkeyup="MessageTextKeyUpEventHandler" @ref="_inputTextReference"  Id="name" Class="form-control" @bind-Value="ViewModel.MessageFormText"> </InputTextArea>
+        <ValidationMessage For="@(() => ViewModel.MessageFormText)" />
     </div>
 
     <p>

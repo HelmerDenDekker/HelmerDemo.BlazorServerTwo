@@ -1,5 +1,6 @@
 ﻿@page "/MessageBox"
 @using HelmerDemo.BlazorServerTwo.Application.Business
+@using HelmerDemo.BlazorServerTwo.Application.Components.Shared
 <PageTitle>Message Box</PageTitle>
 
 @switch (ViewModel.ViewModelState)
@@ -20,6 +21,7 @@
                 </div>
             </div>
         }
+        <EditMessageBox />
         break;
      default:
         <p>Loading...</p>
