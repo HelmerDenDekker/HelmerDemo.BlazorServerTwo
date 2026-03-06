@@ -29,6 +29,10 @@ public class EditMessageBoxViewModel : IEditMessageBoxViewModel
     }
 
     public string MessageFormText { get; set; } = string.Empty;
+    public void Submit()
+    {
+        throw new NotImplementedException();
+    }
 
     private void InitializeState()
     {
@@ -54,4 +58,5 @@ public interface IEditMessageBoxViewModel
     void Initialize();
     
     public string MessageFormText { get; set; }
+    void Submit();
 }

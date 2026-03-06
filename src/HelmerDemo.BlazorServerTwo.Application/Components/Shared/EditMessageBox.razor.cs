@@ -1,9 +1,7 @@
-﻿using System.Reactive.Subjects;
-using HelmerDemo.BlazorServerTwo.Application.Business.MessageBox;
+﻿using HelmerDemo.BlazorServerTwo.Application.Business.MessageBox;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.AspNetCore.Components.Web;
-using Microsoft.JSInterop;
 
 namespace HelmerDemo.BlazorServerTwo.Application.Components.Shared;
 
@@ -14,6 +12,7 @@ namespace HelmerDemo.BlazorServerTwo.Application.Components.Shared;
 public partial class EditMessageBox : ComponentBase
 {
     protected EditContext _editContext;
+    private InputTextArea _inputTextReference;
     
     [Inject]
     private IEditMessageBoxViewModel ViewModel { get; set; }
@@ -31,7 +30,8 @@ public partial class EditMessageBox : ComponentBase
     
     private void MessageTextInputEventHandler(ChangeEventArgs obj)
     {
-        _inputStream.OnNext(MessageInput.Content);
+        // TODO: Think about it. Blazor already couples the input to the ViewModel.
+        // We can take the advantage of streams to process, and subscribe
     }
 	
     private void MessageTextKeyUpEventHandler(KeyboardEventArgs obj)
