@@ -1,11 +1,13 @@
-﻿using HelmerDemo.BlazorServerTwo.Application.Business.Users;
+﻿using System.Reactive.Linq;
+using HelmerDemo.BlazorServerTwo.Application.Business.Users;
 
 namespace HelmerDemo.BlazorServerTwo.Application.Business.MessageBox;
 
-public class EditMessageBoxViewModel : IEditMessageBoxViewModel
+public class EditMessageBoxViewModel : IEditMessageBoxViewModel, IDisposable
 {
     private readonly IUserStateProvider _userStateProvider;
     private readonly IMessageBoxStore _store;
+    private IDisposable? _userStateSubscription;
 
     public EditMessageBoxViewModel(IUserStateProvider userStateProvider, IMessageBoxStore store)
     {
@@ -18,14 +20,7 @@ public class EditMessageBoxViewModel : IEditMessageBoxViewModel
 
     public void Initialize()
     {
-        // TODO some stupid and way to complex logic because UserProvider filling is async. For now, ask for reload.
-        if(_userStateProvider.IsLoading)
-        {
-            ViewModelState = ViewModelStateEnum.Error;
-            ErrorMessage = "User not loaded yet, please refresh later.";
-            return;
-        }
-        InitializeState();
+        _userStateSubscription = _userStateProvider.WhenStateChanged().Where(u=>u.State == ViewModelStateEnum.Ready).Subscribe(_ => InitializeState());
     }
 
     public string MessageFormText { get; set; } = string.Empty;
@@ -48,6 +43,11 @@ public class EditMessageBoxViewModel : IEditMessageBoxViewModel
 
         MessageFormText = state.MessageFormText;
         ViewModelState = ViewModelStateEnum.Ready;
+    }
+
+    public void Dispose()
+    {
+        _userStateSubscription?.Dispose();
     }
 }
 
