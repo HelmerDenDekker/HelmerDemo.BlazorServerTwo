@@ -6,10 +6,10 @@
 @switch (ViewModel.ViewModelState)
 {
     case ViewModelStateEnum.Loading:
-        <p>Loading...</p>
+        <Loading />
         break;
     case ViewModelStateEnum.Error:
-        <p>Error: @ViewModel.ErrorMessage</p>
+        <ErrorComponent ErrorMessage="@ViewModel.ErrorMessage" />
         break;
     case ViewModelStateEnum.Ready:
         foreach (var message in ViewModel.Messages)
@@ -24,6 +24,6 @@
         <EditMessageBox />
         break;
      default:
-        <p>Loading...</p>
+        <Loading />
         break;
 }

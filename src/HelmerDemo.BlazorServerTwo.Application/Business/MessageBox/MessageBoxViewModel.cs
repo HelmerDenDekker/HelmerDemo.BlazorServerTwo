@@ -30,10 +30,11 @@ public class MessageBoxViewModel : IMessageBoxViewModel
         // TODO some stupid and way to complex logic because UserProvider filling is async. For now, ask for reload.
         if(_userStateProvider.IsLoading)
         {
-            ViewModelState = ViewModelStateEnum.Error;
-            ErrorMessage = "User not loaded yet, please refresh later.";
+            ViewModelState = ViewModelStateEnum.Loading;
             return;
         }
+        
+        
         InitializeState();
     }
 
