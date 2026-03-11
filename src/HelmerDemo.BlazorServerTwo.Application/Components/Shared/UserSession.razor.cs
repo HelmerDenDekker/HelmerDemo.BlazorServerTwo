@@ -28,19 +28,23 @@ public partial class UserSession : ComponentBase
         }
 
         // It should get the UserId from LocalStorage
-        var result = await LocalStorageProvider.GetAsync<UserDto>(Key);
-        await ProcessUser(result);
-        
-        
+        await GetUserIdAsync();
+
         await base.OnAfterRenderAsync(firstRender);
     }
-    
+
+    private async Task GetUserIdAsync()
+    {
+        var result = await LocalStorageProvider.GetAsync<UserDto>(Key);
+        await ProcessUser(result);
+    }
+
     private async Task ProcessUser(ValueResult<UserDto> result)
     {
         // No Id Found
         if (result.Result == Result.NoContent)
         {
-            await CheckLocalStorageEnabled();
+            await StoreUserIdAsync();
             return;
         }
         
@@ -61,14 +65,14 @@ public partial class UserSession : ComponentBase
         if (result.Result == Result.Conflict)
         {
             await LocalStorageProvider.DeleteAsync(Key);
-            await CheckLocalStorageEnabled();
+            await StoreUserIdAsync();
             return;
         }
         
         ShowErrorPage("An unexpected error occurred while trying to access Local Storage. Please try again later.");
     }
 
-    private async Task CheckLocalStorageEnabled()
+    private async Task StoreUserIdAsync()
     {
         var enabled = await LocalStorageProvider.IsEnabledAsync();
 
@@ -78,6 +82,7 @@ public partial class UserSession : ComponentBase
             return;
         }
         
+        // TODO: Edge case: If the browser restarts (f.e. after update), AND user just cleared storage, it wil set multiple user states for the same user.
         await SetUserState();
     }
 
@@ -86,7 +91,6 @@ public partial class UserSession : ComponentBase
         var userDto = UserStateProvider.Create();
 
         await LocalStorageProvider.SetAsync(Key, userDto);
-        // TODO: Edge case: If the browser restarts (f.e. after update), AND user just cleared storage, it wil set multiple user states for the same user.
     }
 
     private void ShowErrorPage(string message)

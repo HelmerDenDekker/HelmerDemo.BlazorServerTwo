@@ -11,6 +11,15 @@ public class UserState
         Id = Guid.NewGuid();
     }
     
+    /// <summary>
+    /// Rehydration case only!
+    /// </summary>
+    /// <param name="userId"></param>
+    public UserState(Guid userId)
+    {
+        Id = userId;
+    }
+    
     public Guid Id { get; }
 
     public bool LoggedIn { get; private set; }

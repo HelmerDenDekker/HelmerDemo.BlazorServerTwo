@@ -25,9 +25,13 @@ public class UserStateProvider(IUserStateStore userStateStore) : IUserStateProvi
     public void Rehydrate(UserDto user)
     {
         var userState = userStateStore.FindById(user.Id);
+        
+        // UserState exists in browser, not in memory.
         if (userState == null)
-            // TODO, if userState is null, something clearly went wrong. Implement clean exception handling here. For now, we just throw an exception.
-            throw new Exception($"UserState with id {user.Id} not found");
+        {
+            userState = new UserState(user.Id);
+            userStateStore.Add(userState);
+        }
 
         UserId = userState.Id;
         IsLoading = false;

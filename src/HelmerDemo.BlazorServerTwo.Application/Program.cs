@@ -13,7 +13,9 @@ builder.Services.AddRazorComponents()
 // TODO: Find the right scope for Blazor. Sometimes is better to use a (singleton)Factory and create a new instance fow hen you need a service.
 // Scoped is one per instance / session.
 builder.Services.AddScoped<IClockViewModel, ClockViewModel>();
+builder.Services.AddSingleton<IMessageBoxStore, MessageBoxStore>();
 builder.Services.AddScoped<IMessageBoxViewModel, MessageBoxViewModel>();
+builder.Services.AddScoped<IEditMessageBoxViewModel, EditMessageBoxViewModel>();
 builder.Services.AddScoped<ILocalStorageProvider, LocalStorageProvider>(); // TODO This might live too long for its purpose in UserSession.
 builder.Services.AddScoped<IUserStateProvider, UserStateProvider>();
 

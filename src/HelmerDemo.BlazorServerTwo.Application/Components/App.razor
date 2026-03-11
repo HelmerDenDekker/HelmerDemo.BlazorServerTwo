@@ -18,7 +18,7 @@
 
 <body>
 @* Set rendermode here *@
-    <UserSession /> @*The UserSession is an empty component, initializing the UserProvider in an async way *@
+    <UserSession @rendermode="InteractiveServer" /> @*The UserSession is an empty component, initializing the UserProvider in an async way *@
     <Routes @rendermode="InteractiveServer"/>
     <ReconnectModal/>
 <script src="@Assets["_framework/blazor.web.js"]"></script>
