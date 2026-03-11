@@ -3,12 +3,15 @@ using HelmerDemo.BlazorServerTwo.Application.Business.MessageBox;
 using HelmerDemo.BlazorServerTwo.Application.Business.Users;
 using HelmerDemo.BlazorServerTwo.Application.Components;
 using HelmerDemo.BlazorServerTwo.Application.JsInterop;
+using R3;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
+
+builder.Services.AddBlazorR3();
 
 // TODO: Find the right scope for Blazor. Sometimes is better to use a (singleton)Factory and create a new instance fow hen you need a service.
 // Scoped is one per instance / session.

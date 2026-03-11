@@ -25,6 +25,7 @@ public partial class EditMessageBox : ComponentBase
     
     private void Submit(EditContext obj)
     {
+        var isValid = ViewModel.Validate();
         ViewModel.Submit();
     }
     

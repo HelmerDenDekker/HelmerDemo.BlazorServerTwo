@@ -37,10 +37,7 @@ public class MessageBoxViewModel : IMessageBoxViewModel, IDisposable
     // Overkill? Or nicely decoupled messages?
     public List<MessageDto> Messages { get; private set; } = new();
 
-    public IObservable<Unit> WhenStateChanged()
-    {
-        return _stateChangedSubject;
-    }
+    public IObservable<Unit> WhenStateChanged() => _stateChangedSubject;
 
     public void Initialize()
     {
@@ -60,7 +57,7 @@ public class MessageBoxViewModel : IMessageBoxViewModel, IDisposable
             _store.Add(_userStateProvider.UserId, state);
         }
 
-        Messages = state.Messages.ToDto();
+        state.Messages.Subscribe(m => Messages = m.Value )
         ViewModelState = ViewModelStateEnum.Ready;
         _stateChangedSubject.OnNext(Unit.Default);
     }
