@@ -1,9 +1,9 @@
 ﻿using System.Collections.Concurrent;
 using Serilog;
 
-namespace HelmerDemo.BlazorServerTwo.Application.Business.MessageBox;
+namespace HelmerDemo.BlazorServerTwo.Application.Business.MessageBox.NotifyChanged;
 
-public class MessageBoxStore : IMessageBoxStore
+public class MessageBoxStore : NotifyChanged.IMessageBoxStore
 {
     private ConcurrentDictionary<Guid, MessageBoxState> UserMessageBoxStates { get; } = new();
     
@@ -24,12 +24,4 @@ public class MessageBoxStore : IMessageBoxStore
         if (!UserMessageBoxStates.TryRemove(id, out _))
             Log.Error($"Removal of key {id} in dictionary failed: key not found");
     }
-}
-
-public interface IMessageBoxStore
-{
-    public MessageBoxState? FindById(Guid userId);
-    public void Add(Guid userId, MessageBoxState boxState);
-
-    public void RemoveById(Guid id);
 }

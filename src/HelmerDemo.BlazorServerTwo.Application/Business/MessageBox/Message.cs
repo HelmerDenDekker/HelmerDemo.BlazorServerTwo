@@ -8,6 +8,6 @@ public class Message
         CreatedAt = DateTime.UtcNow;
     }
 
-    public string Content { get; set; }
+    public string Content { get; }
     public DateTime CreatedAt { get; }
 }

@@ -1,13 +1,14 @@
 ﻿@page "/CounterR3"
 @using HelmerDemo.BlazorServerTwo.Application.Business.Counter.R3
+@using R3
 <div>
     <h1>Counter</h1>
 
     <p role="status">Current count: @CounterViewModel.Counter.Value</p>
 
     <button class="btn btn-primary"
-        @onclick="() => CounterViewModel.IncrementCommand.Execute()"
-        disabled="@CounterViewModel.IncrementCommand.IsDisabled()"
+        @onclick="() => CounterViewModel.IncrementCommand.Execute(Unit.Default)"
+        disabled="@CounterViewModel.IncrementCommand.IsDisabled"
         type="button">
         Click me
     </button>
@@ -15,4 +16,6 @@
 
 @code {
     private CounterViewModel CounterViewModel { get; } = new();
+    private void OnIncrementClick(MouseEventArgs _)
+        => CounterViewModel.IncrementCommand.Execute(Unit.Default);
 }
