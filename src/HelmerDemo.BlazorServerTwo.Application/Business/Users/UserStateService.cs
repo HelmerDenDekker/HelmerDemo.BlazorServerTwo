@@ -6,13 +6,13 @@ namespace HelmerDemo.BlazorServerTwo.Application.Business.Users;
 ///     This class provides the <see cref="UserState" /> to viewmodels in a stateless way. Its lifetime is scoped. It
 ///     fetches stuff from the UserState the ViewModel needs.
 /// </summary>
-public class UserStateProvider : IUserStateProvider, IDisposable
+public class UserStateService : IUserStateService, IDisposable
 {
     private readonly IUserStateStore _userStateStore;
 
     private readonly BehaviorSubject<UserStateDto> _userStateSubject;
 
-    public UserStateProvider(IUserStateStore userStateStore)
+    public UserStateService(IUserStateStore userStateStore)
     {
         _userStateStore = userStateStore;
         _userStateSubject = new BehaviorSubject<UserStateDto>(this.ToDto());
@@ -60,7 +60,7 @@ public class UserStateProvider : IUserStateProvider, IDisposable
     }
 }
 
-public interface IUserStateProvider
+public interface IUserStateService
 {
     public Guid UserId { get; }
 

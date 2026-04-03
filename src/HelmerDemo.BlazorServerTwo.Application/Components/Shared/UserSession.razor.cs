@@ -14,7 +14,7 @@ public partial class UserSession : ComponentBase
     private ILocalStorageProvider LocalStorageProvider { get; set; } = default!;
     
     [Inject]
-    private IUserStateProvider UserStateProvider { get; set; } = default!;
+    private IUserStateService UserStateService{ get; set; } = default!;
 
     [Inject]
     private NavigationManager NavigationManager { get; set; } = default!;
@@ -50,7 +50,7 @@ public partial class UserSession : ComponentBase
         
         if (result.Result.IsSuccess())
         {
-            UserStateProvider.Rehydrate(result.Value);
+            UserStateService.Rehydrate(result.Value);
             return;
         }
         
@@ -88,7 +88,7 @@ public partial class UserSession : ComponentBase
 
     private async Task SetUserState()
     {
-        var userDto = UserStateProvider.Create();
+        var userDto = UserStateService.Create();
 
         await LocalStorageProvider.SetAsync(Key, userDto);
     }

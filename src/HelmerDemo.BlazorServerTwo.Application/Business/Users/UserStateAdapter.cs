@@ -2,7 +2,7 @@
 
 public static class UserStateAdapter
 {
-    public static UserStateDto ToDto(this UserStateProvider userState)
+    public static UserStateDto ToDto(this UserStateService userState)
     {
         return new UserStateDto
         {

@@ -8,12 +8,12 @@ namespace HelmerDemo.BlazorServerTwo.Application.Business.MessageBox.NotifyChang
 public class EditMessageBoxViewModel : IEditMessageBoxViewModel
 {
     private readonly IMessageBoxStore _store;
-    private readonly IUserStateProvider _userStateProvider;
+    private readonly IUserStateService _userStateProvider;
     private MessageBoxState? _state;
     private IDisposable _stateSubscription;
     private IDisposable? _userStateSubscription;
 
-    public EditMessageBoxViewModel(IUserStateProvider userStateProvider, IMessageBoxStore store)
+    public EditMessageBoxViewModel(IUserStateService userStateProvider, IMessageBoxStore store)
     {
         _userStateProvider = userStateProvider;
         _store = store;

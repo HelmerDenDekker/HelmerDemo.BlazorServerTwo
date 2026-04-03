@@ -1,0 +1,24 @@
+﻿@page "/CascadeSharedState"
+@using HelmerDemo.BlazorServerTwo.Application.Components.Shared
+
+<CascadingPageState>
+    <PageTitle>Cascade shared state</PageTitle>
+
+    <div class="d-flex flex-column gap-2">
+        <p>This page demonstrates cascading shared state across multiple components.</p>
+        <p>The message value is stored in the <code>CascadingPageState</code> component, which is a cascading parameter.
+        </p>
+        <p>This is more of a showcase for having an AppState (instead of PageState) and doing real sibling stuff, where you can update a value in the MainLayout component, while editing the message on this page.</p>
+        <p>Pro: It is a simple way of using state and cascading.<br>
+            Against: For bigger apps, this might soon get out of control, needing to cascade even more cascading values, and the AppState growing into a monster.
+        </p>
+        <hr/>
+        <CpsEditMessage/>
+        <hr/>
+        <CpsUser/>
+        <hr/>
+        <CpsSibling/>
+
+    </div>
+</CascadingPageState>
+

@@ -23,7 +23,7 @@ builder.Services.AddSingleton<IMessageBoxStore, MessageBoxStore>();
 builder.Services.AddScoped<IMessageBoxViewModel, MessageBoxViewModel>();
 builder.Services.AddScoped<IEditMessageBoxViewModel, EditMessageBoxViewModel>();
 builder.Services.AddScoped<ILocalStorageProvider, LocalStorageProvider>(); // TODO This might live too long for its purpose in UserSession.
-builder.Services.AddScoped<IUserStateProvider, UserStateProvider>();
+builder.Services.AddScoped<IUserStateService, UserStateService>();
 
 builder.Services.AddSingleton<IUserStateStore, UserStateStore>();
 
