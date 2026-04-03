@@ -1,4 +1,4 @@
-﻿using HelmerDemo.BlazorServerTwo.Application.Business.Counter.MVVM;
+﻿using HelmerDemo.BlazorServerTwo.Application.Features.Counter.MVVM;
 using Microsoft.AspNetCore.Components;
 
 namespace HelmerDemo.BlazorServerTwo.Application.Components.Pages;

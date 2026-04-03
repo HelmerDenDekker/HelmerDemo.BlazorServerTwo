@@ -1,4 +1,4 @@
-﻿using HelmerDemo.BlazorServerTwo.Application.Business.Clock.MVVM;
+﻿using HelmerDemo.BlazorServerTwo.Application.Features.Clock.MVVM;
 using Microsoft.AspNetCore.Components;
 
 namespace HelmerDemo.BlazorServerTwo.Application.Components.Pages;

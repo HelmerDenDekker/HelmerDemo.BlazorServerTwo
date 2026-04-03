@@ -1,11 +1,10 @@
-using HelmerDemo.BlazorServerTwo.Application.Business.Clock.MVVM;
-using HelmerDemo.BlazorServerTwo.Application.Business.MessageBox;
-using HelmerDemo.BlazorServerTwo.Application.Business.MessageBox.NotifyChanged;
-using HelmerDemo.BlazorServerTwo.Application.Business.Users;
 using HelmerDemo.BlazorServerTwo.Application.Components;
+using HelmerDemo.BlazorServerTwo.Application.Features.Clock.MVVM;
+using HelmerDemo.BlazorServerTwo.Application.Features.SharedTabs.NotifyChanged;
+using HelmerDemo.BlazorServerTwo.Application.Features.Users;
 using HelmerDemo.BlazorServerTwo.Application.JsInterop;
 using R3;
-using IMessageBoxStore = HelmerDemo.BlazorServerTwo.Application.Business.MessageBox.NotifyChanged.IMessageBoxStore;
+using IMessageBoxStore = HelmerDemo.BlazorServerTwo.Application.Features.SharedTabs.NotifyChanged.IMessageBoxStore;
 
 
 var builder = WebApplication.CreateBuilder(args);

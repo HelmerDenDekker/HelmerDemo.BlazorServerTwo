@@ -1,4 +1,4 @@
-﻿using HelmerDemo.BlazorServerTwo.Application.Business.Users;
+﻿using HelmerDemo.BlazorServerTwo.Application.Features.Users;
 using HelmerDemo.BlazorServerTwo.Application.JsInterop;
 using HelmerDemo.BlazorServerTwo.Shared;
 using HelmerDemo.BlazorServerTwo.Shared.Extensions;

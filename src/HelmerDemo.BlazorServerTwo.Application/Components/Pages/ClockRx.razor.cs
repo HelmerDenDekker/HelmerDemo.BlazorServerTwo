@@ -1,5 +1,5 @@
 ﻿using System.Reactive.Linq;
-using HelmerDemo.BlazorServerTwo.Application.Business.Clock;
+using HelmerDemo.BlazorServerTwo.Application.Features.Clock;
 using Microsoft.AspNetCore.Components;
 
 namespace HelmerDemo.BlazorServerTwo.Application.Components.Pages;

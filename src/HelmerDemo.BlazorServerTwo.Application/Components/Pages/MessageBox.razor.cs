@@ -1,5 +1,4 @@
-﻿using HelmerDemo.BlazorServerTwo.Application.Business.MessageBox;
-using HelmerDemo.BlazorServerTwo.Application.Business.MessageBox.NotifyChanged;
+﻿using HelmerDemo.BlazorServerTwo.Application.Features.SharedTabs.NotifyChanged;
 using Microsoft.AspNetCore.Components;
 
 namespace HelmerDemo.BlazorServerTwo.Application.Components.Pages;
