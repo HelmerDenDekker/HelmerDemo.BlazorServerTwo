@@ -1,8 +1,7 @@
 ﻿namespace HelmerDemo.BlazorServerTwo.Application.Features.Users;
 
 /// <summary>
-///     Holds the user state and domain logic. Has a custom lifetime. // TODO, it is NOT about the session. It is Shared
-///     state.
+///     Holds the user state and domain logic. Has a custom lifetime. // TODO, it is NOT about the session. It is Shared state.
 /// </summary>
 public class UserState
 {
