@@ -1,0 +1,30 @@
+﻿@page "/MessageBox"
+@using HelmerDemo.BlazorServerTwo.Application.Components.Features.SharedTabs
+@using HelmerDemo.BlazorServerTwo.Application.Components.Shared
+@using HelmerDemo.BlazorServerTwo.Application.Features
+<PageTitle>Message Box</PageTitle>
+
+@switch (ViewModel.ViewModelState)
+{
+    case ViewModelStateEnum.Loading:
+        <Loading />
+        break;
+    case ViewModelStateEnum.Error:
+        <ErrorComponent ErrorMessage="@ViewModel.ErrorMessage" />
+        break;
+    case ViewModelStateEnum.Ready:
+        foreach (var message in ViewModel.Messages)
+        {
+            <div class="message message--user">
+                <div class="message__wrapper">
+                    <p class="message__content">@message.Content</p>
+                    <p class="message__timestamp">@message.TimeStamp</p>
+                </div>
+            </div>
+        }
+        <EditMessageBox />
+        break;
+     default:
+        <Loading />
+        break;
+}
