@@ -15,7 +15,7 @@ public partial class ClockRxMvvm : ComponentBase, IDisposable
     private IDisposable? _subscription;
     
     [Inject]
-    private IClockViewModel? ClockViewModel { get; set; }
+    private IClockViewModel ClockViewModel { get; set; }
     
     protected override void OnInitialized()
     {

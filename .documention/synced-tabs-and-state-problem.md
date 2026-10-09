@@ -41,11 +41,10 @@ Where the state should be kept in sync.
 
 ## Thinking about it.
 
+Content management system:
 
-Content management system.
-
-There are pages.
-Pages have (possibly shared) content blocks.
+There are pages.  
+Pages have (possibly shared) content blocks.  
 
 So, the states mentioned can even be mixed!
 
@@ -55,13 +54,14 @@ Yes.
 
 The state is a snapshot of an in-memory object, or a snapshot of events.
 
-The idea is to store the events. ObjectId, FieldId, Timestamp, Value, UserId.
+The idea is to store the events: ObjectId, FieldId, Timestamp, Value, UserId.
 
 Then, you can replay the events to get the current state of the object.
 
-I am having a stream.
+I have a stream.
 
-I can subscribe to a stream, and filter on the objectId.
+I can subscribe to a stream, and filter on the objectId/fieldId, do a diff compare, and update if needed.
+
 
 
 
