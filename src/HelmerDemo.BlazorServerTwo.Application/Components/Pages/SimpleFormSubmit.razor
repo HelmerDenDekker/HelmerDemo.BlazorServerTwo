@@ -1,0 +1,22 @@
+﻿@page "/SimpleFormSubmit"
+<h3>SimpleFormSubmit</h3>
+
+<p>I want the field below changed, as I entered input for the message. I need to submit the form old-fashioned way</p>
+
+<p>Submitted Message: @SubmittedContent</p>
+
+<hr/>
+
+<EditForm EditContext="@_editContext" OnValidSubmit="ValidSubmitEventHandler">
+    <DataAnnotationsValidator />
+
+    <div class="form-group">
+        <label for="content">Enter your Message: </label>
+        <InputTextArea Id="content" Class="form-control" @bind-Value="Content"> </InputTextArea>
+        <ValidationMessage For="@(() => Content)" />
+    </div>
+
+    <p>
+        <button type="submit">Submit</button>
+    </p>
+</EditForm>

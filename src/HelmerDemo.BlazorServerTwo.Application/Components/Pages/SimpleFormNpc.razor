@@ -1,0 +1,18 @@
+﻿@page "/SimpleFormNpc"
+<h3>SimpleForm INotifyPropertyChanged</h3>
+
+<p>This is a solution wih INotifyPropertyChanged. I want the field below changed, as I enter input for the message. It is not a live-stream, It updates when you change focus.</p>
+
+<p>Entering Message: @EnteredContent</p>
+
+<hr/>
+
+<EditForm EditContext="@_editContext">
+    <DataAnnotationsValidator />
+
+    <div class="form-group">
+        <label for="content">Enter your Message: </label>
+        <InputTextArea Id="content" Class="form-control" @bind-Value="Model.Content"> </InputTextArea>
+        <ValidationMessage For="@(() => Model.Content)" />
+    </div>
+</EditForm>
