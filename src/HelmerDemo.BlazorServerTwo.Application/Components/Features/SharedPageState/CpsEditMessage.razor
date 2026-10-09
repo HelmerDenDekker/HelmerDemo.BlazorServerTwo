@@ -1,0 +1,15 @@
+﻿<EditForm EditContext="@_editContext" OnValidSubmit="Submit">
+    <DataAnnotationsValidator />
+
+    <div class="form-group">
+        <label for="name">Enter your Message: </label>
+        <InputTextArea @oninput="@(ui => { Message = (string)ui.Value ?? string.Empty; })" @onkeyup="MessageTextKeyUpEventHandler" Id="name" Class="form-control" @bind-Value="Message"> </InputTextArea>
+        <ValidationMessage For="@(() => Message)" />
+    </div>
+
+    <p>
+        <button type="submit">Submit</button>
+    </p>
+</EditForm>
+
+<p>Latest Message: @PageState.Message</p>
