@@ -1,0 +1,18 @@
+﻿@page "/simpleformblazor"
+<h3>Simple message form with Blazor</h3>
+
+<p>This is a simple Blazor solution. The field below changed should live-stream the message entered in the form.</p>
+
+<p>Entering Message: @EnteredContent</p>
+
+<hr/>
+
+<EditForm EditContext="@_editContext">
+    <DataAnnotationsValidator />
+
+    <div class="form-group">
+        <label for="content">Enter your Message: </label>
+        <InputTextArea @oninput="@(ui => { Content = (string)ui.Value ?? string.Empty; MessageTextInputEventHandler(ui); })" @ref="_inputTextReference" Id="content" Class="form-control" @bind-Value="Content"> </InputTextArea>
+        <ValidationMessage For="@(() => Content)" />
+    </div>
+</EditForm>
