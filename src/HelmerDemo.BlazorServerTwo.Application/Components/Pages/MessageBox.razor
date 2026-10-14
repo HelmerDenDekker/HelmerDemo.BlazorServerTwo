@@ -6,13 +6,13 @@
 
 @switch (ViewModel.ViewModelState)
 {
-    case ViewModelStateEnum.Loading:
+    case ViewModelState.Loading:
         <Loading />
         break;
-    case ViewModelStateEnum.Error:
+    case ViewModelState.Error:
         <ErrorComponent ErrorMessage="@ViewModel.ErrorMessage" />
         break;
-    case ViewModelStateEnum.Ready:
+    case ViewModelState.Ready:
         foreach (var message in ViewModel.Messages)
         {
             <div class="message message--user">

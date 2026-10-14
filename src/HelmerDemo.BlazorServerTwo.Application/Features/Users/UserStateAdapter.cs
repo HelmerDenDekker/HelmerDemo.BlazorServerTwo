@@ -6,7 +6,7 @@ public static class UserStateAdapter
     {
         return new UserStateDto
         {
-            State = userState.IsLoading ? ViewModelStateEnum.Loading : ViewModelStateEnum.Ready
+            State = userState.IsLoading ? ViewModelState.Loading : ViewModelState.Ready
         };
     }
 }

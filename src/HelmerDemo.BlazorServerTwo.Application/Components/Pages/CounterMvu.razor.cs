@@ -14,6 +14,6 @@ public partial class CounterMvu : ComponentBase
 
     private void IncrementCount()
     {
-        _model = CounterUpdate.Update(_model, CounterMessageEnum.Increment);
+        _model = CounterUpdate.Update(_model, CounterMessage.Increment);
     }
 }

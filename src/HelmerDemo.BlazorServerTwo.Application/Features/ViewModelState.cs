@@ -1,6 +1,6 @@
 ﻿namespace HelmerDemo.BlazorServerTwo.Application.Features;
 
-public enum ViewModelStateEnum
+public enum ViewModelState
 {
     Loading,
     Error,

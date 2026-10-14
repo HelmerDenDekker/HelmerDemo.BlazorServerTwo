@@ -68,7 +68,7 @@ public static class StringExtensions
     /// <param name="input"></param>
     /// <param name="prepend"></param>
     /// <returns></returns>
-    public static string PrePend(this string input, string prepend)
+    public static string Prepend(this string input, string prepend)
     {
         return prepend + input;
     }

@@ -34,9 +34,9 @@ public class MessageBoxViewModel : IMessageBoxViewModel, IDisposable
     }
 
     // properties for view binding
-    public ViewModelStateEnum ViewModelState { get;
+    public ViewModelState ViewModelState { get;
         set => SetField(ref field, value);
-    } = ViewModelStateEnum.Loading;
+    } = ViewModelState.Loading;
     public string ErrorMessage { get; } = string.Empty;
 
     // Overkill? Or nicely decoupled messages?
@@ -46,7 +46,7 @@ public class MessageBoxViewModel : IMessageBoxViewModel, IDisposable
 
     public void Initialize()
     {
-        _userStateSubscription = _userStateProvider.WhenStateChanged().Where(u => u.State == ViewModelStateEnum.Ready)
+        _userStateSubscription = _userStateProvider.WhenStateChanged().Where(u => u.State == ViewModelState.Ready)
             .Subscribe(_ => InitializeState());
     }
 
@@ -63,7 +63,7 @@ public class MessageBoxViewModel : IMessageBoxViewModel, IDisposable
         }
         
         _state.PropertyChanged += OnStatePropertyChangedHandler;
-        ViewModelState = ViewModelStateEnum.Ready;
+        ViewModelState = ViewModelState.Ready;
         _stateChangedSubject.OnNext(Unit.Default);
     }
 
@@ -94,7 +94,7 @@ public class MessageBoxViewModel : IMessageBoxViewModel, IDisposable
 
 public interface IMessageBoxViewModel : INotifyPropertyChanged
 {
-    public ViewModelStateEnum ViewModelState { get; }
+    public ViewModelState ViewModelState { get; }
     string ErrorMessage { get; }
 
     public List<MessageDto> Messages { get; }

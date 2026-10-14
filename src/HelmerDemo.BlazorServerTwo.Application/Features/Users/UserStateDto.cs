@@ -2,5 +2,5 @@
 
 public class UserStateDto
 {
-    public ViewModelStateEnum State { get; set; }
+    public ViewModelState State { get; set; }
 }

@@ -30,12 +30,12 @@ public class EditMessageBoxViewModel : IEditMessageBoxViewModel
         _stateSubscription?.Dispose();
     }
 
-    public ViewModelStateEnum ViewModelState { get; private set; } = ViewModelStateEnum.Loading;
+    public ViewModelState ViewModelState { get; private set; } = ViewModelState.Loading;
     public string ErrorMessage { get; private set; } = string.Empty;
 
     public void Initialize()
     {
-        _userStateSubscription = _userStateProvider.WhenStateChanged().Where(u => u.State == ViewModelStateEnum.Ready)
+        _userStateSubscription = _userStateProvider.WhenStateChanged().Where(u => u.State == ViewModelState.Ready)
             .Subscribe(_ => InitializeState());
     }
 
@@ -54,7 +54,7 @@ public class EditMessageBoxViewModel : IEditMessageBoxViewModel
         
         // TODO: Data annotations validation in form
         ErrorMessage = _state.Results.FirstOrDefault()?.ErrorMessage ?? "An error occurred while submitting the message.";
-        ViewModelState = ViewModelStateEnum.Error;
+        ViewModelState = ViewModelState.Error;
     }
 
     public bool Validate()
@@ -71,7 +71,7 @@ public class EditMessageBoxViewModel : IEditMessageBoxViewModel
 
         if (_state == null)
         {
-            ViewModelState = ViewModelStateEnum.Error;
+            ViewModelState = ViewModelState.Error;
             ErrorMessage = "Could not retrieve state for user session.";
             return;
         }
@@ -79,7 +79,7 @@ public class EditMessageBoxViewModel : IEditMessageBoxViewModel
         _state.PropertyChanged += OnStatePropertyChangedHandler;
 
         MessageFormText = _state.MessageFormText;
-        ViewModelState = ViewModelStateEnum.Ready;
+        ViewModelState = ViewModelState.Ready;
     }
 
     private void OnStatePropertyChangedHandler(object? sender, PropertyChangedEventArgs e)
@@ -112,7 +112,7 @@ public class EditMessageBoxViewModel : IEditMessageBoxViewModel
 
 public interface IEditMessageBoxViewModel : INotifyPropertyChanged, IDisposable
 {
-    public ViewModelStateEnum ViewModelState { get; }
+    public ViewModelState ViewModelState { get; }
     string ErrorMessage { get; }
 
     public string MessageFormText { get; set; }
