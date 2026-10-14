@@ -14,7 +14,7 @@ public partial class ClockEvents : ComponentBase, IDisposable
     /// <summary>
     /// The digital time in the frontend
     /// </summary>
-    private DigitalTime CurrentTime = new(DateTime.Now);
+    private DigitalTime _currentTime = new(DateTime.Now);
 
     private System.Timers.Timer? _timer;
 
@@ -29,7 +29,7 @@ public partial class ClockEvents : ComponentBase, IDisposable
             _timer = new System.Timers.Timer();
             _timer.Interval = 1000;
             // Subscribe to the listener
-            _timer.Elapsed += OnTimeUpdated;
+            _timer.Elapsed += HandleTimerElapsed;
             _timer.AutoReset = true;
             // Start the timer
             _timer.Enabled = true;
@@ -44,7 +44,7 @@ public partial class ClockEvents : ComponentBase, IDisposable
     {
         if (_timer != null)
         {
-            _timer.Elapsed -= OnTimeUpdated;
+            _timer.Elapsed -= HandleTimerElapsed;
         }
         _timer?.Dispose();
     }
@@ -53,10 +53,10 @@ public partial class ClockEvents : ComponentBase, IDisposable
     /// The event listener, listening to an external event
     /// </summary>
     /// <param name="source"></param>
-    /// <param name="args"></param>
-    private void OnTimeUpdated(object source, ElapsedEventArgs e)
+    /// <param name="e"></param>
+    private void HandleTimerElapsed(object? source, ElapsedEventArgs e)
     {
-        CurrentTime = CurrentTime.AddSecond();
+        _currentTime = _currentTime.AddSecond();
         InvokeAsync(StateHasChanged);
     }
 }

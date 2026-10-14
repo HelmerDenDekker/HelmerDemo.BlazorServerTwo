@@ -14,17 +14,17 @@ public partial class SimpleFormNpc : ComponentBase, IDisposable
     
     protected override void OnInitialized()
     {
-        Model.PropertyChanged += UpdateEnteredContent;
+        Model.PropertyChanged += HandleUpdatedContent;
         _editContext = new EditContext(Model.Content);
     }
 
-    private void UpdateEnteredContent(object? sender, PropertyChangedEventArgs e)
+    private void HandleUpdatedContent(object? sender, PropertyChangedEventArgs e)
     {
         EnteredContent = Model.Content;
     }
 
     public void Dispose()
     {
-        Model.PropertyChanged -= UpdateEnteredContent;
+        Model.PropertyChanged -= HandleUpdatedContent;
     }
 }
