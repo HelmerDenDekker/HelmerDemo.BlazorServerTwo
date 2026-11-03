@@ -30,7 +30,6 @@ public partial class ClockRxMvvm : ComponentBase, IDisposable
 
     public void Dispose()
     {
-        ClockViewModel?.Dispose();
         _subscription?.Dispose();
     }
 }
