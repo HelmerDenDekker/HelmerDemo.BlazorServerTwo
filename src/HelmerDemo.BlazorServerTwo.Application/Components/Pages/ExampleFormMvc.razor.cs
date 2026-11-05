@@ -4,10 +4,11 @@ using HelmerDemo.BlazorServerTwo.Shared.Extensions;
 using Microsoft.AspNetCore.Components;
 
 namespace HelmerDemo.BlazorServerTwo.Application.Components.Pages;
+
 /// <summary>
-/// Async commit example
+/// The razor page is like the view. This code-behind is like the javascript in the View, it takes care of the events and the state of the view. (ViewState)
 /// </summary>
-public partial class ExampleFormAsync : ComponentBase
+public partial class ExampleFormMvc : ComponentBase
 {
     [Inject]
     private ICommitPersonsService CommitPersonsService { get; set; } = null!;

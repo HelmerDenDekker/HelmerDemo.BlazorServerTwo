@@ -1,8 +1,8 @@
-﻿@page "/exampleformasync"
+﻿@page "/exampleformmvc"
 @using HelmerDemo.BlazorServerTwo.Application.Features.ExampleForm.AsyncCommit.Application.Domain
-<h3>Decoupled persons form</h3>
+<h3>Decoupled persons form - MVC-like</h3>
 
-<p>In this architecture, the frontend is decoupled from the backend. Any submit is async committed to the backend, and persisted. There is no synchronisation. There are clear onion layers between Blazor, Application and Frontend.</p>
+<p>In this architecture, the frontend is decoupled from the backend. Any submit is async committed to the backend, and persisted. There is automatic synchronisation between sessions. There are clear onion layers between Blazor, Application and Frontend.</p>
 <p>Advantages</p>
 <ul>
     <li>Decoupling: The Domain model, Database model or blazor frontend can be changed without affecting one another.</li>
@@ -11,7 +11,7 @@
 </ul>
 <p>Drawbacks</p>
 <ul>
-    <li>There is no synchronization between Blazor sessions. (Is that a drawback or an advantage?)</li>
+    <li>There is no synchronization between Blazor sessions. (Is that a drawback or an advantage?) You CAN add synchronization through notifications, but that is messy (see the EditMessage attempt). Also, adding it would ruin the intent, to show this as a simple MVC example. Frontend is in charge here.</li>
     <li>There is a lot of code, due to all the adapters and contracts! This could be mistaken for complexity.</li>
     <li>Validation logic is both in Frontend and in Backend.</li>
     <li>Adding a property to a contract, means the FrontEnd does not break. There is no hard coupling. So how do I know what to fix in the Frontend?</li>
