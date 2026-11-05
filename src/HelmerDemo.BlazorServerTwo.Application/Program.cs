@@ -1,5 +1,6 @@
 using HelmerDemo.BlazorServerTwo.Application.Components;
 using HelmerDemo.BlazorServerTwo.Application.Features.Clock.MVVM;
+using HelmerDemo.BlazorServerTwo.Application.Features.ExampleForm.AsyncCommit.Application.Extensions;
 using HelmerDemo.BlazorServerTwo.Application.Features.SharedTabs.NotifyChanged;
 using HelmerDemo.BlazorServerTwo.Application.Features.Users;
 using HelmerDemo.BlazorServerTwo.Application.JsInterop;
@@ -23,6 +24,7 @@ builder.Services.AddScoped<IMessageBoxViewModel, MessageBoxViewModel>();
 builder.Services.AddScoped<IEditMessageBoxViewModel, EditMessageBoxViewModel>();
 builder.Services.AddScoped<ILocalStorageProvider, LocalStorageProvider>(); // TODO This might live too long for its purpose in UserSession.
 builder.Services.AddScoped<IUserStateService, UserStateService>();
+builder.Services.AddExampleFormAsyncCommitApplication();
 
 builder.Services.AddSingleton<IUserStateStore, UserStateStore>();
 
