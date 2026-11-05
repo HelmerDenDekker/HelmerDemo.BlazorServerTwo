@@ -1,4 +1,4 @@
-﻿using HelmerDemo.BlazorServerTwo.Application.Features.ExampleForm.Shared.Domain;
+﻿using HelmerDemo.BlazorServerTwo.Application.Features.ExampleForm.Domain;
 
 namespace HelmerDemo.BlazorServerTwo.Application.Features.ExampleForm.Mvc.Application.Extensions;
 

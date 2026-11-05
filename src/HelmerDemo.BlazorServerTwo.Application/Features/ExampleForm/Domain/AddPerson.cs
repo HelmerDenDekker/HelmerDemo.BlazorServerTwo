@@ -1,4 +1,4 @@
-﻿namespace HelmerDemo.BlazorServerTwo.Application.Features.ExampleForm.Shared.Domain;
+﻿namespace HelmerDemo.BlazorServerTwo.Application.Features.ExampleForm.Domain;
 
 public class AddPerson
 {

@@ -1,0 +1,54 @@
+﻿@page "/example-form-actor"
+@using HelmerDemo.BlazorServerTwo.Application.Components.Shared
+@using HelmerDemo.BlazorServerTwo.Application.Features
+@using HelmerDemo.BlazorServerTwo.Application.Features.ExampleForm.Domain
+<h3>Decoupled persons form - Actor-y</h3>
+
+<p>Actor pattern applied to Blazor.</p>
+<p>It is NOT the actor pattern, but it looks a bit like it.</p>
+
+@switch(State)
+{
+    case ViewState.Loading:
+        <Loading />
+        break;
+    case ViewState.Error:
+        <p>Error: @ErrorMessage</p>
+        break;
+    case ViewState.Ready:
+        <h4>People</h4>
+
+        <p>List of all people entered:</p>
+        <ol>
+            @foreach(var person in People)
+            {
+                <li>@person.FullName</li>
+            }
+        </ol>
+
+        <br />
+        <h4>Add Person</h4>
+        <EditForm Model="@AddPersonModel" OnValidSubmit="AddPersonAsync">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+            <div>
+                <label>First Name:</label>
+                <InputText @bind-Value="AddPersonModel.FirstName" />
+            </div>
+            <div>
+                <label>Last Name:</label>
+                <InputText @bind-Value="AddPersonModel.LastName" />
+            </div>
+            <div>
+                <label>Gender:</label>
+                <InputSelect @bind-Value="AddPersonModel.Gender">
+                    @foreach (var gender in Enum.GetValues(typeof(Gender)))
+                    {
+                        <option value="@gender">@gender</option>
+                    }
+                </InputSelect>
+            </div>
+            <button type="submit">Add Person</button>
+        </EditForm>
+        break;
+}

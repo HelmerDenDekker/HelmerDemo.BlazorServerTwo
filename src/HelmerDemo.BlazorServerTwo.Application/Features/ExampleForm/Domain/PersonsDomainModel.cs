@@ -1,6 +1,6 @@
 ﻿using HelmerDemo.BlazorServerTwo.Shared;
 
-namespace HelmerDemo.BlazorServerTwo.Application.Features.ExampleForm.Shared.Domain;
+namespace HelmerDemo.BlazorServerTwo.Application.Features.ExampleForm.Domain;
 
 /// <summary>
 /// The domain is modeled as a singleton here, not as a good example, but as a quick domain representation. A domain can be scoped, or have its own lifetime.
