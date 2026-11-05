@@ -1,6 +1,6 @@
 ﻿using HelmerDemo.BlazorServerTwo.Shared;
 
-namespace HelmerDemo.BlazorServerTwo.Application.Features.ExampleForm.AsyncCommit.Application.Domain;
+namespace HelmerDemo.BlazorServerTwo.Application.Features.ExampleForm.Shared.Domain;
 
 /// <summary>
 /// The domain is modeled as a singleton here, not as a good example, but as a quick domain representation. A domain can be scoped, or have its own lifetime.
@@ -32,11 +32,4 @@ public class PersonsDomainModel
         
         return Result.Created;
     }
-}
-
-public class AddPerson
-{
-    public string FirstName { get; set; } = string.Empty;
-    public string LastName { get; set; } = string.Empty;
-    public Gender Gender { get; set; } = Gender.Other;
 }

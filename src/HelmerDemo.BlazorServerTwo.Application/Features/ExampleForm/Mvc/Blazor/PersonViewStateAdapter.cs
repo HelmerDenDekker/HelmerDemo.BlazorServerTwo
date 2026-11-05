@@ -1,6 +1,6 @@
-﻿using HelmerDemo.BlazorServerTwo.Application.Features.ExampleForm.AsyncCommit.Application;
+﻿using HelmerDemo.BlazorServerTwo.Application.Features.ExampleForm.Mvc.Application;
 
-namespace HelmerDemo.BlazorServerTwo.Application.Features.ExampleForm.AsyncCommit.Blazor;
+namespace HelmerDemo.BlazorServerTwo.Application.Features.ExampleForm.Mvc.Blazor;
 
 public static class PersonViewStateAdapter
 {

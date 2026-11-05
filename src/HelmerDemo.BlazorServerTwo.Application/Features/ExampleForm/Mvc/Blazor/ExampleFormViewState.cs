@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using HelmerDemo.BlazorServerTwo.Application.Features.ExampleForm.AsyncCommit.Application.Domain;
+using HelmerDemo.BlazorServerTwo.Application.Features.ExampleForm.Shared.Domain;
 
-namespace HelmerDemo.BlazorServerTwo.Application.Features.ExampleForm.AsyncCommit.Blazor;
+namespace HelmerDemo.BlazorServerTwo.Application.Features.ExampleForm.Mvc.Blazor;
 
 /// <summary>
 /// This holds the State of the View. So this is tied to the Blazor, Frontend project. It is aenemic. 

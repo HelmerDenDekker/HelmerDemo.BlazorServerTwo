@@ -1,4 +1,4 @@
-﻿namespace HelmerDemo.BlazorServerTwo.Application.Features.ExampleForm.AsyncCommit.Application.Domain;
+﻿namespace HelmerDemo.BlazorServerTwo.Application.Features.ExampleForm.Shared.Domain;
 
 /// <summary>
 /// There can be all kinds of stuff in here that is relevant to the domain model.

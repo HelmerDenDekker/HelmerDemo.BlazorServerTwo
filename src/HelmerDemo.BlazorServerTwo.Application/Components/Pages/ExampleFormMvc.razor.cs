@@ -1,5 +1,5 @@
-﻿using HelmerDemo.BlazorServerTwo.Application.Features.ExampleForm.AsyncCommit.Application;
-using HelmerDemo.BlazorServerTwo.Application.Features.ExampleForm.AsyncCommit.Blazor;
+﻿using HelmerDemo.BlazorServerTwo.Application.Features.ExampleForm.Mvc.Application;
+using HelmerDemo.BlazorServerTwo.Application.Features.ExampleForm.Mvc.Blazor;
 using HelmerDemo.BlazorServerTwo.Shared.Extensions;
 using Microsoft.AspNetCore.Components;
 

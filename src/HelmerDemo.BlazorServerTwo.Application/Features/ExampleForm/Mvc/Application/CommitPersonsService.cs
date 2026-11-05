@@ -1,7 +1,7 @@
-﻿using HelmerDemo.BlazorServerTwo.Application.Features.ExampleForm.AsyncCommit.Application.Domain;
+﻿using HelmerDemo.BlazorServerTwo.Application.Features.ExampleForm.Shared.Domain;
 using HelmerDemo.BlazorServerTwo.Shared;
 
-namespace HelmerDemo.BlazorServerTwo.Application.Features.ExampleForm.AsyncCommit.Application;
+namespace HelmerDemo.BlazorServerTwo.Application.Features.ExampleForm.Mvc.Application;
 
 /// <summary>
 /// This is like an API controller.
@@ -59,18 +59,4 @@ public interface ICommitPersonsService
     /// <param name="addPersonDto"></param>
     /// <returns></returns>
     public Task<Result> AddPersonAsync(AddPersonDto addPersonDto);
-}
-
-public class PersonSummaryDto
-{
-    public Guid Id { get; set; } = Guid.NewGuid();
-    public string FirstName { get; set; } = string.Empty;
-    public string LastName { get; set; } = string.Empty;
-}
-
-public class AddPersonDto
-{
-    public string FirstName { get; set; } = string.Empty;
-    public string LastName { get; set; } = string.Empty;
-    public Gender Gender { get; set; } = Gender.Other;
 }
