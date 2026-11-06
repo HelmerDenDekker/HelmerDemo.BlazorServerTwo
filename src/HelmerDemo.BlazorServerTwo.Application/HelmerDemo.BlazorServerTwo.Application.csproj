@@ -18,8 +18,4 @@
     <ProjectReference Include="..\HelmerDemo.BlazorServerTwo.Shared\HelmerDemo.BlazorServerTwo.Shared.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Features\ExampleForm\Actor\" />
-  </ItemGroup>
-
 </Project>

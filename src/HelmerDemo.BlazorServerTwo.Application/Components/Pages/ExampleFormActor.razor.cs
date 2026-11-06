@@ -1,4 +1,5 @@
 ﻿using HelmerDemo.BlazorServerTwo.Application.Features;
+using HelmerDemo.BlazorServerTwo.Application.Features.ExampleForm.Actor;
 using HelmerDemo.BlazorServerTwo.Application.Features.ExampleForm.Domain;
 using Microsoft.AspNetCore.Components;
 
@@ -6,7 +7,7 @@ namespace HelmerDemo.BlazorServerTwo.Application.Components.Pages;
 
 public partial class ExampleFormActor : ComponentBase
 {
-    // TODO public IExampleFormActor Actor { get; set; } = default!;
+    public IExampleFormActor Actor { get; set; } = default!;
 
     private ViewState State { get; set; } = ViewState.Loading;
     private string ErrorMessage { get; set; } = string.Empty;
