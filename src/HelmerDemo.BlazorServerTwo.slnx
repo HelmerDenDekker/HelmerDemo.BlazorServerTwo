@@ -1,3 +1,4 @@
 <Solution>
   <Project Path="HelmerDemo.BlazorServerTwo.Application/HelmerDemo.BlazorServerTwo.Application.csproj" Id="ed2e622f-4b2a-496f-80ed-37a8118ce285" />
+  <Project Path="HelmerDemo.BlazorServerTwo.Shared/HelmerDemo.BlazorServerTwo.Shared.csproj" />
 </Solution>

@@ -1,0 +1,66 @@
+﻿@page "/example-form-mvvm"
+@using HelmerDemo.BlazorServerTwo.Application.Features.ExampleForm.Domain
+@using HelmerDemo.BlazorServerTwo.Application.Features.ExampleForm.Mvvm.Blazor
+<h3>Decoupled persons form - MVVM-y</h3>
+
+<p>MVVM applied to Blazor.</p>
+<p>It is NOT MVVM, but it looks a bit like it. However, the ViewModel is not tied to one view, but multiple. I think this feels more natural to Blazor.</p>
+<p>Advantages</p>
+<ul>
+    <li>Decoupling: Instead of the known Blazor examples, I will decouple. I still want changes in the Domain model, the Database model or blazor frontend not to affect one another.</li>
+    <li>Flexibility: The architecture allows for more flexible changes and adaptations.</li>
+</ul>
+<p>Drawbacks</p>
+<ul>
+    <li>There is no synchronization between Blazor sessions. (Is that a drawback or an advantage?) You CAN add synchronization through notifications.</li>
+    <li>There is a lot of code, due to all the adapters and contracts! This could be mistaken for complexity.</li>
+    <li>Validation logic is both in Frontend and in Backend.</li>
+    <li>Adding a property to a contract, means the FrontEnd does not break. There is no hard coupling. So how do I know what to fix in the Frontend?</li>
+</ul>
+
+@switch(ViewModel.State)
+{
+    case ViewModelState.Loading:
+        <p>Loading...</p>
+        break;
+    case ViewModelState.Error:
+        <p>Error: @ViewModel.ErrorMessage</p>
+        break;
+    case ViewModelState.Ready:
+        <h4>People</h4>
+
+        <p>List of all people entered:</p>
+        <ol>
+            @foreach(var person in ViewModel.People)
+            {
+                <li>@person.FullName</li>
+            }
+        </ol>
+
+        <br />
+        <h4>Add Person</h4>
+        <EditForm Model="@ViewModel.AddPersonModel" OnValidSubmit="ViewModel.AddPersonAsync">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+            <div>
+                <label>First Name:</label>
+                <InputText @bind-Value="ViewModel.AddPersonModel.FirstName" />
+            </div>
+            <div>
+                <label>Last Name:</label>
+                <InputText @bind-Value="ViewModel.AddPersonModel.LastName" />
+            </div>
+            <div>
+                <label>Gender:</label>
+                <InputSelect @bind-Value="ViewModel.AddPersonModel.Gender">
+                    @foreach (var gender in Enum.GetValues(typeof(Gender)))
+                    {
+                        <option value="@gender">@gender</option>
+                    }
+                </InputSelect>
+            </div>
+            <button type="submit">Add Person</button>
+        </EditForm>
+        break;
+}
+
