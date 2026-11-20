@@ -1,7 +1,7 @@
 ﻿namespace HelmerDemo.BlazorServerTwo.Application.Features;
 
 /// <summary>
-/// It is not about the ViewModel, it is about the View!
+/// The state of the View
 /// </summary>
 public enum ViewState
 {
