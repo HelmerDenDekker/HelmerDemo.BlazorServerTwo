@@ -1,0 +1,19 @@
+﻿@page "/simpleformrx"
+<h3>Simple message form with ReactiveX</h3>
+
+<p>This is a solution with ReactiveX. The content entered in the form should be shown here below. It is not a live stream. It shows the message upon switching focus.</p>
+
+<p>Entered Message: @EnteredContent<br />
+    This shows after switching focus. (Click next to the field)</p>
+
+<hr/>
+
+<EditForm EditContext="@_editContext">
+    <DataAnnotationsValidator />
+
+    <div class="form-group">
+        <label for="content">Enter your Message: </label>
+        <InputTextArea Id="content" Class="form-control" @bind-Value="Model.Content" > </InputTextArea>
+        <ValidationMessage For="@(() => Model.Content)" />
+    </div>
+</EditForm>

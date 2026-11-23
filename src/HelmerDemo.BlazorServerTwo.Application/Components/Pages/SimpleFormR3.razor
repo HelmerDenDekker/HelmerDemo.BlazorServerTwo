@@ -1,0 +1,19 @@
+﻿@page "/simpleformr3"
+<h3>Simple message form with R3</h3>
+
+<p>This is a solution with R3. The content entered in the form should be shown here below. It is not a live stream. It shows the message upon switching focus.</p>
+
+<p>Entered Message: @EnteredContent<br />
+    This shows after switching focus. (Click next to the field)</p>
+
+<hr/>
+
+<EditForm EditContext="@_editContext">
+    <DataAnnotationsValidator />
+
+    <div class="form-group">
+        <label for="content">Enter your Message: </label>
+        <InputTextArea Id="content" Class="form-control" @bind-Value="Model.Content.Value" > </InputTextArea>
+        <ValidationMessage For="@(() => Model.Content.Value)" />
+    </div>
+</EditForm>

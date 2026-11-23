@@ -1,0 +1,14 @@
+﻿@page "/ErrorMessage"
+<h3>Something went wrong</h3>
+
+<p>@DisplayMessage</p>
+
+@code {
+    private const string DefaultMessage = "An unexpected error occurred. Please try again later.";
+
+    [Parameter]
+    [SupplyParameterFromQuery(Name = "message")]
+    public string? Message { get; set; }
+
+    private string DisplayMessage => string.IsNullOrWhiteSpace(Message) ? DefaultMessage : Message;
+}
